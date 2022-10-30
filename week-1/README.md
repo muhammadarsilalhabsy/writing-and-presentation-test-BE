@@ -23,22 +23,22 @@
 
   &nbsp;&nbsp;&nbsp;&nbsp;REST atau **REpresentational State Transfer** merupakan salah satu architecture design untuk membuat web services. REST adalah architecture style sedangkan RESTful API adalah API yang menerapkan ke 6 rules/principal dari REST architecture seperti yang dibawah ini.
 
-  1.  uniform interface
-  2.  client-server
-  3.  stateless
-  4.  cacheable
-  5.  layered system
-  6.  code on demand (optional)
+1.  uniform interface
+2.  client-server
+3.  stateless
+4.  cacheable
+5.  layered system
+6.  code on demand (optional)
 
 - #### HTTP Method
 
   &nbsp;&nbsp;&nbsp;&nbsp;[HTTP Method](https://restfulapi.net/http-methods/) bertujuan sebagai penanda untuk melakukan request pada server, baik itu mengambil data, mengirim data, menghapus data, merubah data dan lain sebagainya. berikut beberapa HTTP Method yang akan dipelajari:
 
   1. get (mengambil data)
-  2. post (menambah data)
-  3. put (mengupdate data)
-  4. patch (mengupdate data secara partial/sebahagian juga bisa mereplace data)
-  5. delete (menghapus data)
+  1. post (menambah data)
+  1. put (mengupdate data)
+  1. patch (mengupdate data secara partial/sebahagian juga bisa mereplace data)
+  1. delete (menghapus data)
 
 - #### HTTP Status Code
 
