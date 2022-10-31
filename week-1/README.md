@@ -140,3 +140,7 @@ code view (modular):
 ## Design Databases
 
 ![desing databases](../assets/diagram%20databases.png 'databases diagram')
+
+- ### Normalisasi
+
+&nbsp;&nbsp;&nbsp;&nbsp;Normalisasi adalah salah satu teknik desain logic database yang bertujuan mengelompokan atribut-atribut dari suatu relasi untuk menghindari duplikasi kerangka data, menghindari data yang berlebih (redundant), menghindari update data yang anomaly, meminimalisir kompleksitas data dan mempermudah dalam memodifikasi data. lebih detail tentang [normalisasi](https://medium.com/telematika/normalisasi-1nf-2nf-3nf-1018bdecf028)
