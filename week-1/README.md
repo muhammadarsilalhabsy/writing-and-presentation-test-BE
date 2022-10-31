@@ -119,14 +119,24 @@
 
 ![express module](../assets/express.png 'keneksi ke port 80000')
 
-4. Menggunakan npm nodemon ke dev : `npm i --save-dev nodemon`
+4. Menggunakan npm nodemon ke dev : `npm i --save-dev nodemon atau npm i -D nedemon`
 
 ![nodemon module](../assets/nodemon.png 'nodemon')
 
 - #### Middleware
 
-  &nbsp;&nbsp;&nbsp;&nbsp;Middleware adalah sebuah aturan atau prosedur-prosedur yang harus dilewati. middelware memiliki aksess ke object req, res, dan next.
+&nbsp;&nbsp;&nbsp;&nbsp;Middleware adalah sebuah aturan atau prosedur-prosedur yang harus dilewati. middelware memiliki aksess ke object req, res, dan next.
 
-  code view:
+code view (biasa):
 
 ![middleware](../assets/post.png 'menambah data menggunakan post melalui middleware')
+
+code view (modular):
+
+![middleware](../assets/modular%20routes.png 'modular get data')
+
+&nbsp;
+
+## Design Databases
+
+![desing databases](../assets/diagram%20databases.png 'databases diagram')
