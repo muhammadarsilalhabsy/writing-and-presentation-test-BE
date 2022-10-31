@@ -1,0 +1,17 @@
+Web server & RESTful API
+Peserta mampu memahami konsep web server
+Peserta mampu memahami konsep RESTFul API
+
+Intro node js
+Peserta mampu memahami fundamental Node.js
+Peserta mampu memahami topik utama Node.js untuk kebutuhan back-end
+Peserta mampu membuat program dengan Node.js
+
+
+ routing dan middleware menggunakan Express.js
+Peserta mampu memahami dan membuat routing
+Peserta mampu memahami dan membuat middleware
+
+Peserta mampu menentukan dan membuat diagram entity
+Peserta mampu menentukan dan membuat attribute entity
+Peserta mampu menentukan dan membuat relasi entity
