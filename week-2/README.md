@@ -21,40 +21,6 @@ Tabel ini digunakan untuk menyimpan informasi tentang record data object yang ak
 
 &nbsp;&nbsp;&nbsp;&nbsp;Pemberian tipe data untuk field atau attribute pada table di maksudkan agar setiap field bisa merepresetasikan nilai dari sebuah attribute baik itu berupa angka (numerik), teks, ataupun berupa waktu. Berikut beberapa tipe data yang bisa digunakan, untuk lebih lengkapnya silahkan ke => [MySql data type.](https://www.w3schools.com/sql/sql_datatypes.asp#:~:text=In%20MySQL%20there%20are%20three,numeric%2C%20and%20date%20and%20time)
 
-| Tipe Data   |                       Kegunaan                       |
-| ----------- | :--------------------------------------------------: |
-| VARCHAR     | dapat berisikan (string, number dan karakter khusus) |
-| TEXT        |                        `GET`                         |
-| INT/INTEGER |                        `GET`                         |
-| BOOLEAN     |                        `POST`                        |
-| FLOAT       |                        `GET`                         |
-| TIMESTAMP   |                        `PUT`                         |
-| YEAR        |                       `DELETE`                       |
-| TIME        |                        `GET`                         |
-
-# RANGKUMAN WEEK 2 BACK-END BOOTCAMP
-
-## Basic MySQL
-
-- #### Definisi Database
-
-&nbsp;&nbsp;&nbsp;&nbsp;Database adalah kumpulan table elektronik yang terorganisir yang saling memiliki relasi tiap-tiap tablenya, tiap-tiap table memiliki informasi record (isi table) atau data yang kemudian bisa diolah oleh sebuah sistem. Untuk berkomunikasi dengan database diperlukan sebuah software DBMS (Database Management System).
-
-- #### Relational Database
-
-&nbsp;&nbsp;&nbsp;&nbsp;Database relasional adalah kumpulan table dengan hubungan yang telah ditentukan sebelumnya, ada 4 jenis hubungan dalam relasional database yang umumnya digunakan diantaranya:
-
-1. One to Many
-2. Many to Many
-3. One to One
-4. Self Referencing Relationships
-
-Tabel ini digunakan untuk menyimpan informasi tentang record data object yang akan direpresentasikan dalam database. Tiap kolom pada tabel bisa di set dengan jenis data tertentu dengan [MySql data type.](https://www.w3schools.com/sql/sql_datatypes.asp#:~:text=In%20MySQL%20there%20are%20three,numeric%2C%20and%20date%20and%20time) Setiap table biasanya memiliki satu kunci unik/utama yang disebut dengan kunci primer atau primary key, untuk menghubungkan sebuah table dengan table lainnya harus dengan menambahkan kunci asing/foreign key pada table tujuan.
-
-- #### Tipe Data pada MySQL
-
-&nbsp;&nbsp;&nbsp;&nbsp;Pemberian tipe data untuk field atau attribute pada table di maksudkan agar setiap field bisa merepresetasikan nilai dari sebuah attribute baik itu berupa angka (numerik), teks, ataupun berupa waktu. Berikut beberapa tipe data yang bisa digunakan, untuk lebih lengkapnya silahkan ke => [MySql data type.](https://www.w3schools.com/sql/sql_datatypes.asp#:~:text=In%20MySQL%20there%20are%20three,numeric%2C%20and%20date%20and%20time)
-
 | Tipe Data   |             digunakan untuk              |
 | ----------- | :--------------------------------------: |
 | VARCHAR     | nama, nim, kode dengan pengabungan huruf |
