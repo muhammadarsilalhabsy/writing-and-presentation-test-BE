@@ -1,0 +1,20 @@
+mysql basic
+Peserta mampu memahami Database
+Peserta mampu memahami Relational Database
+Peserta mampu memahami Tipe Data pada MySQL
+Peserta mampu memahami dan melakukan manipulasi query sederhana
+
+mysql lanjutan
+Peserta mampu memahami dan melakukan manipulasi query tingkat lanjut yang sering digunakan
+Peserta mampu memahami dan membuat relational antar table 
+
+ authentication dan authorization
+Peserta mampu memahami beberapa variasi authentication dan authorization
+Peserta mampu memahami perbedaan authnentication, authorization, dan encryption
+Peserta mampu membuat authentication dan authorization
+
+sequalize
+Peserta mampu memahami dan menggunakan Sequalize
+Peserta mampu membuat API Specification
+Peserta mampu membuat web server dan RESTFul API
+
