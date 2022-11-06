@@ -55,7 +55,7 @@ Tabel ini digunakan untuk menyimpan informasi tentang record data object yang ak
 
 &nbsp;&nbsp;&nbsp;&nbsp;Pemberian tipe data untuk field atau attribute pada table di maksudkan agar setiap field bisa merepresetasikan nilai dari sebuah attribute baik itu berupa angka (numerik), teks, ataupun berupa waktu. Berikut beberapa tipe data yang bisa digunakan, untuk lebih lengkapnya silahkan ke => [MySql data type.](https://www.w3schools.com/sql/sql_datatypes.asp#:~:text=In%20MySQL%20there%20are%20three,numeric%2C%20and%20date%20and%20time)
 
-| Tipe Data   |          biasa digunakan untuk           |
+| Tipe Data   |             digunakan untuk              |
 | ----------- | :--------------------------------------: |
 | VARCHAR     | nama, nim, kode dengan pengabungan huruf |
 | TEXT        |         deskripsi sebuah barang          |
