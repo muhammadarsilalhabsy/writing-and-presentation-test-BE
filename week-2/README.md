@@ -34,66 +34,220 @@ Tabel ini digunakan untuk menyimpan informasi tentang record data object yang ak
 
 - #### Query SQL sederhana
 
-  - Membuat database
+&nbsp;&nbsp;&nbsp;&nbsp;Perintah SQL dibagi menjadi 3 sub yaitu:
 
-    ```sql
-      create database mahasiswa_db
-    ```
+1. **DDL** (Data Definition Language)
+   - create
+   - rename
+   - alter
+   - drop
+2. **DML** (Data Manipulation Language)
+   - select
+   - insert
+   - update
+   - delete
+3. **DCL** (Data Control Language)
+   - grant
+   - revoke
 
-  - Untuk menggunakan database
+&nbsp;&nbsp;&nbsp;&nbsp;Query database sederhana yang akan tampilkan berikut merupakan kombinasi DDL dan DML, mulai dari membuat database, table, insert data sampai dengan delete data pada table.
 
-    ```sql
-      use mahasiswa_db
-    ```
+- Membuat database
 
-  - Membuat table
+  ```sql
+    create database mahasiswa_db
+  ```
 
-    ```sql
-    create table mahasiswa(
+- Untuk menggunakan database
+
+  ```sql
+    use mahasiswa_db
+  ```
+
+- Membuat table
+
+  ```sql
+  create table mahasiswa(
+    id int not null primary key auto_increment,
+    nim varchar(100) not null primary key,
+    nama varchar(100) not null,
+    email varchar(100) not null,
+    createdAt timestamp not null default current_timestamp
+  )engine = InnoDB;
+  ```
+
+- Melihat cara melihat pembuatan table
+
+  ```sql
+    -- cara 1
+    desc mahasiswa;
+
+    -- cara 2
+    show create table mahasiswa;
+
+  ```
+
+- Menambahkan data pada table
+
+  ```sql
+  insert into mahasiswa (nim, nama, email) values
+  ("21916042", "Muhammad Arsil Alhabsy", "muhammadarsilalhabsy@gmail.com"),
+  ("21916043", "Fulan", "fulan@gmail.com"),
+  ("21916043", "Udin", "udin@gmail.com");
+  ```
+
+- Cara melihat record/data isi table
+
+  ```sql
+    -- melihat seluruh kolom
+    select * from mahasiswa
+
+    -- melihat dengan colom pilihan (nim dan nama)
+    select nim, nama from mahasiswa;
+  ```
+
+- Update data pada table mahasiswa
+
+  ```sql
+    update mahasiswa
+    set
+    nama = "Indong",
+    email = "indong@gmail.com"
+    where nim = '21916042';
+  ```
+
+- Delete data pada table mahasiswa
+
+  ```sql
+    delete from mahasiswa
+    where nim = '21916043';
+  ```
+
+## MySQL Lanjut
+
+- #### Membuat database yang berrelasi
+
+- Membuat table dan relasinya
+
+  ```sql
+   -- membuat database
+    create database store;
+
+    -- menggunakan database
+    use store;
+
+    -- create table category
+    create table category (
+      id varchar(10) not null primary key,
+      name varchar(50) not null
+    )engine = innodb; -- optional untuk menambahkan engine
+
+    -- create table products
+    -- table products memiliki relasi one to many dari (category)
+    create table products(
       id int not null primary key auto_increment,
-      nim varchar(100) not null primary key,
-      nama varchar(100) not null,
+      name varchar(100),
+      price int unsigned not null default 0,
+      category_id varchar(10),
+      foreign key (category_id) references category(id)
+    );
+
+    -- create table customers
+    create table customers(
+      id int not null auto_increment,
+      name varchar(100) not null,
       email varchar(100) not null,
-      createdAt timestamp not null default current_timestamp
-    )engine = InnoDB;
-    ```
+      primary key(id)
+    );
 
-  - Melihat cara melihat pembuatan table
+    -- alter table add constraint
+    alter table customers
+    add constraint email_unique unique (email);
 
-    ```sql
-      -- cara 1
-      desc mahasiswa;
+    -- create table wishlist
+    -- table wishlist ini memiliki relasi many to many dari (customers dan products)
+    create table wishlist (
+      id int not null auto_increment primary key,
+      customers_id int not null,
+      products_id int not null,
+      foreign key (customers_id) references customers(id);
+    );
 
-      -- cara 2
-      show create table mahasiswa;
+    -- menambahkan foreign key melalui alter table
+    alter table wishlist
+    add foreign key (products_id) references products(id);
 
-    ```
+  ```
 
-  - Menambahkan data pada table
+- Menambahkan data pada tiap-tiap table
 
-    ```sql
-    insert into mahasiswa (nim, nama, email) values
-    ("21916042", "Muhammad Arsil Alhabsy", "muhammadarsilalhabsy@gmail.com"),
-    ("21916043", "Fulan", "fulan@gmail.com"),
-    ("21916043", "Udin", "udin@gmail.com");
-    ```
+  ```sql
+    insert into customers (name, email) values
+    ("arsil","arsil@gmail.com"),
+    ("ucup","ucup@gmail.com"),
+    ("jamal","jamal@gmail.com"),
+    ("nova","nova@gmail.com");
 
-  - Cara melihat record/data isi table
+    insert into category(id, name) values
+    ('c0001',"makanan"),
+    ('c0002',"minuman"),
+    ('c0003',"bahan dapur"),
+    ('c0004',"alat mandi"),
+    ('c0005',"bahan cuci"),
+    ('c0006',"permen"),
+    ('c0007','lain-lain');
 
-    ```sql
-      -- melihat seluruh kolom
-      select * from mahasiswa
+    insert into products (name, price, category_id) values
+    ('Mie Kaldu',2500,"c0001"),
+    ('Ayam goreng',2000,"c0001"),
+    ('Mie Goreng',3000,"c0001"),
+    ('Daia',6000,"c0005"),
+    ('Pepsodent',12000,"c0004");
 
-      -- melihat dengan colom pilihan (nim dan nama)
-      select nim, nama from mahasiswa;
-    ```
+    insert into wishlist (customers_id, products_id) values
+    (1,5),
+    (1,4),
+    (1,6),
+    (3,4),
+    (3,3),
+    (2,5),
+    (4,5),
+    (4,3);
+  ```
 
-  - Update data pada table mahasiswa
+- Melakukan operasi pada table yang memiliki relasi
 
-    ```sql
-      update mahasiswa
-      set
-      nama = "Indong",
-      email = "indong@gmail.com"
-      where nim = '21916042';
-    ```
+  ```sql
+
+  -- tambilkan id, nama, price dari table products dan juga tampilkan category name dari table category yang saling memiliki hubungan.
+    select p.id, p.name, p.price, c.name as 'category name'
+    from products as p inner join category as c
+    on p.category_id = c.id;
+
+  -- tampilkan nama customer & nama products pada table wishlist
+  -- lalkukan inner join pada table customers dan products
+    select c.name as "pemilik", p.name as "products" from wishlist
+    inner join customers as c
+    on wishlist.customers_id = c.id
+    inner join products as p
+    on wishlist.products_id = p.id;
+
+    -- menghitung average price
+    select avg(price) from products;
+
+    -- menghitung total price
+    select sum(price) from products p ;
+
+    -- meghitung harga yang paling tertinggi
+    select max(price) from products
+
+    -- meghitung banyak tiap-tiap category pada table products menggunakan group by
+    select count(category_id) from products group by category_id  ;
+
+    select c.name as 'category name', count(category_id) as 'total use'
+    from products as p
+    inner join category as c
+    on p.category_id = c.id
+    group by p.category_id;
+
+  ```
