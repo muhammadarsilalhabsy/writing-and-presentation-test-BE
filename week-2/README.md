@@ -127,10 +127,14 @@ Tabel ini digunakan untuk menyimpan informasi tentang record data object yang ak
 
 - #### Membuat database yang berrelasi
 
-- Membuat table dan relasinya
+  **Desain table:**
+
+  ![desain diagram](../assets/table-berrelasi.png 'deasain diagram')
+
+  **Implementasi query:**
 
   ```sql
-   -- membuat database
+  -- membuat database
     create database store;
 
     -- menggunakan database
@@ -272,11 +276,22 @@ Tabel ini digunakan untuk menyimpan informasi tentang record data object yang ak
 
 &nbsp;&nbsp;&nbsp;&nbsp;**Authentication**/Otentikasi adalah sebuah proses pengkonfirmasian atau proses validasi data diri atas identitas yang sudah dimiliki oleh pengguna sebelumnya, Authentication biasanya dilakukan pada saat ingin melakukan login, sedangkan **Authorization**/Otorisasi merupakan sebuah proses untuk menentukan apakah pengguna yang meminta izin masuk telah diberikan hak akses dari sumber daya yang memiliki wewenang tertinggi (admin). Berdedan dengan Authentication dan Authorization, **Encryption** adalah satu teknik yang digunakan untuk mengubah kalimat yang bisa dibaca oleh manusia menjadi kode kode rahasia yang dilakukan pada proses `encode`, kode rahasia ini bisa dikembalikan lagi ke satu kalimat yang bisa dibaca dengan melakukan proses `decode`.
 
-- #### Membuat Authentication dan Authorization menggunakan JWT (Json Web Token)
+- #### Membuat Authentication menggunakan JWT (Json Web Token)
+
+  - Install: `npm install jsonwebtoken`
+  - Add: `require('jsonwebtoken')`
+  - Craete screate key: `const SCREATE_KEY = 'rahasia';`
+  - add: `const token = jwt.sign(data.username, SECREATE_KEY);`
+
+code example:
+
+![auth](../assets/jwt.png 'auth using jwt')
 
 ## Sequalize
 
-&nbsp;&nbsp;&nbsp;&nbsp;**Sequelize** adalah Node.js promise-based ORM untuk beberapa DBMS. Lalu apa itu ORM?. ORM (Object Relation Mapping) merupakan satu teknik merubah table menjadi sebuah object yang nantinya mudah untuk digunakan untuk modifikasi. Manfaat menggunakan Sequelize yaitu kita bisa mengelola sumber daya pada table, baik itu relasi-relasi pada table maupun data di database kita dengan cepat, dan efisien. berikut adalah DBMS yang bisa menggunakan Sequelize diantaranya:
+- #### Definisi dan fungsi Sequalize
+
+&nbsp;&nbsp;&nbsp;&nbsp;**Sequelize** adalah Node.js promise-based ORM untuk beberapa DBMS. Lalu apa itu ORM?. ORM (Object Relation Mapping) merupakan satu teknik merubah table menjadi sebuah object yang nantinya mudah untuk digunakan untuk dimodifikasi. Manfaat menggunakan Sequelize yaitu kita bisa mengelola sumber daya pada table, baik itu relasi-relasi pada table maupun data di database kita dengan cepat, dan efisien. berikut adalah DBMS yang bisa menggunakan Sequelize diantaranya:
 
 1. MySQL,
 2. PostgreSQL,
@@ -284,6 +299,16 @@ Tabel ini digunakan untuk menyimpan informasi tentang record data object yang ak
 4. MSSQL
 5. dan database SQL lainnya.
 
-&nbsp;&nbsp;&nbsp;&nbsp;
+- #### Membuat sequelize-cli
 
-- #### Membuat migrasi database
+1. npm install --save-dev sequelize-cli
+2. npx sequelize-cli init
+3. setting configuration:
+
+![config-json-sequelize](../assets/config-json.png 'config-json-sequelize')
+
+4. membuat model: `npx sequelize-cli model:generate --name User --attributes id:integer,email:string,firstName:string,lastName:string,email:string`
+
+code result (hasil migrasi):
+
+![generate table users](../assets/generate-table-users.png 'generate table users')
