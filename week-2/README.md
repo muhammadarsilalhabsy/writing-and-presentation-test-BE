@@ -251,3 +251,39 @@ Tabel ini digunakan untuk menyimpan informasi tentang record data object yang ak
     group by p.category_id;
 
   ```
+
+- Wildcard & Like
+
+  ```sql
+    -- mencari data dengan awalan kata sampo
+    select id, name, price from products where name like 'sampo%';
+
+    -- mencari data yang menggandung kata 'gor'
+    select id, name, price from products where name like '%gor%';
+
+    -- mencari data dengan akhiran kata 'ng'
+    select id, name, price from products where name like '%ng';
+
+  ```
+
+## Authentication and Authorization
+
+- #### Perbedaan Authentication, Authorization dan Encryption
+
+&nbsp;&nbsp;&nbsp;&nbsp;**Authentication**/Otentikasi adalah sebuah proses pengkonfirmasian atau proses validasi data diri atas identitas yang sudah dimiliki oleh pengguna sebelumnya, Authentication biasanya dilakukan pada saat ingin melakukan login, sedangkan **Authorization**/Otorisasi merupakan sebuah proses untuk menentukan apakah pengguna yang meminta izin masuk telah diberikan hak akses dari sumber daya yang memiliki wewenang tertinggi (admin). Berdedan dengan Authentication dan Authorization, **Encryption** adalah satu teknik yang digunakan untuk mengubah kalimat yang bisa dibaca oleh manusia menjadi kode kode rahasia yang dilakukan pada proses `encode`, kode rahasia ini bisa dikembalikan lagi ke satu kalimat yang bisa dibaca dengan melakukan proses `decode`.
+
+- #### Membuat Authentication dan Authorization menggunakan JWT (Json Web Token)
+
+## Sequalize
+
+&nbsp;&nbsp;&nbsp;&nbsp;**Sequelize** adalah Node.js promise-based ORM untuk beberapa DBMS. Lalu apa itu ORM?. ORM (Object Relation Mapping) merupakan satu teknik merubah table menjadi sebuah object yang nantinya mudah untuk digunakan untuk modifikasi. Manfaat menggunakan Sequelize yaitu kita bisa mengelola sumber daya pada table, baik itu relasi-relasi pada table maupun data di database kita dengan cepat, dan efisien. berikut adalah DBMS yang bisa menggunakan Sequelize diantaranya:
+
+1. MySQL,
+2. PostgreSQL,
+3. SQLite,
+4. MSSQL
+5. dan database SQL lainnya.
+
+&nbsp;&nbsp;&nbsp;&nbsp;
+
+- #### Membuat migrasi database
