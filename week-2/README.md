@@ -79,11 +79,11 @@ Tabel ini digunakan untuk menyimpan informasi tentang record data object yang ak
 - Melihat cara melihat pembuatan table
 
   ```sql
-    -- cara 1
-    desc mahasiswa;
+  -- cara 1
+  desc mahasiswa;
 
-    -- cara 2
-    show create table mahasiswa;
+  -- cara 2
+  show create table mahasiswa;
 
   ```
 
@@ -99,28 +99,28 @@ Tabel ini digunakan untuk menyimpan informasi tentang record data object yang ak
 - Cara melihat record/data isi table
 
   ```sql
-    -- melihat seluruh kolom
-    select * from mahasiswa
+  -- melihat seluruh kolom
+  select * from mahasiswa
 
-    -- melihat dengan colom pilihan (nim dan nama)
-    select nim, nama from mahasiswa;
+  -- melihat dengan colom pilihan (nim dan nama)
+  select nim, nama from mahasiswa;
   ```
 
 - Update data pada table mahasiswa
 
   ```sql
-    update mahasiswa
-    set
-    nama = "Indong",
-    email = "indong@gmail.com"
-    where nim = '21916042';
+  update mahasiswa
+  set
+  nama = "Indong",
+  email = "indong@gmail.com"
+  where nim = '21916042';
   ```
 
 - Delete data pada table mahasiswa
 
   ```sql
-    delete from mahasiswa
-    where nim = '21916043';
+  delete from mahasiswa
+  where nim = '21916043';
   ```
 
 ## MySQL Lanjut
@@ -135,88 +135,88 @@ Tabel ini digunakan untuk menyimpan informasi tentang record data object yang ak
 
   ```sql
   -- membuat database
-    create database store;
+  create database store;
 
-    -- menggunakan database
-    use store;
+  -- menggunakan database
+  use store;
 
-    -- create table category
-    create table category (
-      id varchar(10) not null primary key,
-      name varchar(50) not null
-    )engine = innodb; -- optional untuk menambahkan engine
+  -- create table category
+  create table category (
+    id varchar(10) not null primary key,
+    name varchar(50) not null
+  )engine = innodb; -- optional untuk menambahkan engine
 
-    -- create table products
-    -- table products memiliki relasi one to many dari (category)
-    create table products(
-      id int not null primary key auto_increment,
-      name varchar(100),
-      price int unsigned not null default 0,
-      category_id varchar(10),
-      foreign key (category_id) references category(id)
-    );
+  -- create table products
+  -- table products memiliki relasi one to many dari (category)
+  create table products(
+    id int not null primary key auto_increment,
+    name varchar(100),
+    price int unsigned not null default 0,
+    category_id varchar(10),
+    foreign key (category_id) references category(id)
+  );
 
-    -- create table customers
-    create table customers(
-      id int not null auto_increment,
-      name varchar(100) not null,
-      email varchar(100) not null,
-      primary key(id)
-    );
+  -- create table customers
+  create table customers(
+    id int not null auto_increment,
+    name varchar(100) not null,
+    email varchar(100) not null,
+    primary key(id)
+  );
 
-    -- alter table add constraint
-    alter table customers
-    add constraint email_unique unique (email);
+  -- alter table add constraint
+  alter table customers
+  add constraint email_unique unique (email);
 
-    -- create table wishlist
-    -- table wishlist ini memiliki relasi many to many dari (customers dan products)
-    create table wishlist (
-      id int not null auto_increment primary key,
-      customers_id int not null,
-      products_id int not null,
-      foreign key (customers_id) references customers(id);
-    );
+  -- create table wishlist
+  -- table wishlist ini memiliki relasi many to many dari (customers dan products)
+  create table wishlist (
+    id int not null auto_increment primary key,
+    customers_id int not null,
+    products_id int not null,
+    foreign key (customers_id) references customers(id);
+  );
 
-    -- menambahkan foreign key melalui alter table
-    alter table wishlist
-    add foreign key (products_id) references products(id);
+  -- menambahkan foreign key melalui alter table
+  alter table wishlist
+  add foreign key (products_id) references products(id);
 
   ```
 
 - Menambahkan data pada tiap-tiap table
 
   ```sql
-    insert into customers (name, email) values
-    ("arsil","arsil@gmail.com"),
-    ("ucup","ucup@gmail.com"),
-    ("jamal","jamal@gmail.com"),
-    ("nova","nova@gmail.com");
+  insert into customers (name, email) values
+  ("arsil","arsil@gmail.com"),
+  ("ucup","ucup@gmail.com"),
+  ("jamal","jamal@gmail.com"),
+  ("nova","nova@gmail.com");
 
-    insert into category(id, name) values
-    ('c0001',"makanan"),
-    ('c0002',"minuman"),
-    ('c0003',"bahan dapur"),
-    ('c0004',"alat mandi"),
-    ('c0005',"bahan cuci"),
-    ('c0006',"permen"),
-    ('c0007','lain-lain');
+  insert into category(id, name) values
+  ('c0001',"makanan"),
+  ('c0002',"minuman"),
+  ('c0003',"bahan dapur"),
+  ('c0004',"alat mandi"),
+  ('c0005',"bahan cuci"),
+  ('c0006',"permen"),
+  ('c0007','lain-lain');
 
-    insert into products (name, price, category_id) values
-    ('Mie Kaldu',2500,"c0001"),
-    ('Ayam goreng',2000,"c0001"),
-    ('Mie Goreng',3000,"c0001"),
-    ('Daia',6000,"c0005"),
-    ('Pepsodent',12000,"c0004");
+  insert into products (name, price, category_id) values
+  ('Mie Kaldu',2500,"c0001"),
+  ('Ayam goreng',2000,"c0001"),
+  ('Mie Goreng',3000,"c0001"),
+  ('Daia',6000,"c0005"),
+  ('Pepsodent',12000,"c0004");
 
-    insert into wishlist (customers_id, products_id) values
-    (1,5),
-    (1,4),
-    (1,6),
-    (3,4),
-    (3,3),
-    (2,5),
-    (4,5),
-    (4,3);
+  insert into wishlist (customers_id, products_id) values
+  (1,5),
+  (1,4),
+  (1,6),
+  (3,4),
+  (3,3),
+  (2,5),
+  (4,5),
+  (4,3);
   ```
 
 - Melakukan operasi pada table yang memiliki relasi
@@ -224,49 +224,49 @@ Tabel ini digunakan untuk menyimpan informasi tentang record data object yang ak
   ```sql
 
   -- tambilkan id, nama, price dari table products dan juga tampilkan category name dari table category yang saling memiliki hubungan.
-    select p.id, p.name, p.price, c.name as 'category name'
-    from products as p inner join category as c
-    on p.category_id = c.id;
+  select p.id, p.name, p.price, c.name as 'category name'
+  from products as p inner join category as c
+  on p.category_id = c.id;
 
   -- tampilkan nama customer & nama products pada table wishlist
   -- lalkukan inner join pada table customers dan products
-    select c.name as "pemilik", p.name as "products" from wishlist
-    inner join customers as c
-    on wishlist.customers_id = c.id
-    inner join products as p
-    on wishlist.products_id = p.id;
+  select c.name as "pemilik", p.name as "products" from wishlist
+  inner join customers as c
+  on wishlist.customers_id = c.id
+  inner join products as p
+  on wishlist.products_id = p.id;
 
     -- menghitung average price
-    select avg(price) from products;
+  select avg(price) from products;
 
     -- menghitung total price
-    select sum(price) from products p ;
+  select sum(price) from products p ;
 
     -- meghitung harga yang paling tertinggi
-    select max(price) from products
+  select max(price) from products
 
     -- meghitung banyak tiap-tiap category pada table products menggunakan group by
-    select count(category_id) from products group by category_id  ;
+  select count(category_id) from products group by category_id  ;
 
-    select c.name as 'category name', count(category_id) as 'total use'
-    from products as p
-    inner join category as c
-    on p.category_id = c.id
-    group by p.category_id;
+  select c.name as 'category name', count(category_id) as 'total use'
+  from products as p
+  inner join category as c
+  on p.category_id = c.id
+  group by p.category_id;
 
   ```
 
 - Wildcard & Like
 
   ```sql
-    -- mencari data dengan awalan kata sampo
-    select id, name, price from products where name like 'sampo%';
+  -- mencari data dengan awalan kata sampo
+  select id, name, price from products where name like 'sampo%';
 
-    -- mencari data yang menggandung kata 'gor'
-    select id, name, price from products where name like '%gor%';
+  -- mencari data yang menggandung kata 'gor'
+  select id, name, price from products where name like '%gor%';
 
-    -- mencari data dengan akhiran kata 'ng'
-    select id, name, price from products where name like '%ng';
+  -- mencari data dengan akhiran kata 'ng'
+  select id, name, price from products where name like '%ng';
 
   ```
 
@@ -301,9 +301,10 @@ code example:
 
 - #### Membuat sequelize-cli
 
-1. npm install --save-dev sequelize-cli
-2. npx sequelize-cli init
-3. setting configuration:
+1. `npm install --save-dev sequelize-cli`
+2. `npx sequelize-cli init`
+3. `npm install --save mysql2` (jika menggunakan pake mysql)
+4. setting configuration:
 
 ![config-json-sequelize](../assets/config-json.png 'config-json-sequelize')
 
