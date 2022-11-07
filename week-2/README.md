@@ -308,7 +308,8 @@ code example:
 
 ![config-json-sequelize](../assets/config-json.png 'config-json-sequelize')
 
-4. membuat model: `npx sequelize-cli model:generate --name User --attributes id:integer,email:string,firstName:string,lastName:string,email:string`
+5. membuat model: `npx sequelize-cli model:generate --name User --attributes id:integer,email:string,firstName:string,lastName:string,email:string`
+6. `npx sequelize-cli db:migrate`
 
 code result (hasil migrasi):
 
