@@ -1,0 +1,13 @@
+Sequalize
+Peserta mampu memahami dan menggunakan Sequalize
+Peserta mampu membuat API Specification
+Peserta mampu membuat web server dan RESTFul API
+
+MongoDB
+Peserta mampu memahami basic dari MongoDB
+Peserta mampu melakukan operasi CRUD pada MongoDB
+Peserta mampu memahami dan membuat skema serta relasi pada MongoDB
+Memahami perbedaan NO SQL & SQL
+Memahami instalasi MongoDB
+Memahami Basic Penggunaan MongoDB
+Memahami basic CRUD menggunakan MongoDB
